@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovPiso : MonoBehaviour
 {
     private Vector3 posInicio;
-    private float velocidadScroll = 0.5f;
+    private float velocidadScroll = 1.5f;
     void Start()
     {
         posInicio = transform.position;

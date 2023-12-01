@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class RotacionRuedas : MonoBehaviour
 {
-    private int rotacionRuedas = 1;
+    private int rotacionRuedas = 2;
     void Update()
     {
         transform.Rotate(rotacionRuedas, 0, 0);
-
     }
 }
