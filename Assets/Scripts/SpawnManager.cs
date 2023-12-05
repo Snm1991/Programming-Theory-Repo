@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> enemyPrefabs;
@@ -13,20 +14,38 @@ public class SpawnManager : MonoBehaviour
     private int ejeX = 18;
     private int ejeYEnemy = 0;
     private int ejeYPowerUp = 2;
-    private int ejeZ = 13;
-
+    private float ejeZ = 17.8f;
+    private GameManager juegoActivo;
+    [SerializeField] private TextMeshProUGUI cantidadEnemigosText;
+    public int cantEnemigos = 20;
+    [SerializeField] private GameObject canvasMenu;
+    [SerializeField] private GameObject canvasMisionCompleta;
     void Start()
     {
         spawnRateEnemy = Random.Range(2, 10);
-        spawnRatePowerUp = Random.Range(8, 16);
+        spawnRatePowerUp = Random.Range(10, 18);
         InvokeRepeating("SpawnEnemy", startDelay, spawnRateEnemy);
         InvokeRepeating("SpawnPowerUp", startDelay, spawnRatePowerUp);
+        juegoActivo = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+    void Update()
+    {
+        if (juegoActivo.juegoActivo)
+        {
+            cantidadEnemigosText.text = "Enemigos restantes: " + cantEnemigos;
+        }
+        if (cantEnemigos == 0)
+        {
+            juegoActivo.juegoActivo = false;
+            canvasMenu.SetActive(true);
+            canvasMisionCompleta.SetActive(true);
+        }
     }
     // Update is called once per frame
     void SpawnEnemy()
     {
         enemyCount = FindObjectsOfType<MovEnemigo>().Length;
-        if (enemyCount == 0)
+        if (enemyCount == 0 && cantEnemigos > 0)
         {
             int index = Random.Range(0, enemyPrefabs.Count);
             Instantiate(enemyPrefabs[index], new Vector3(ejeX, ejeYEnemy, ejeZ),
@@ -35,8 +54,11 @@ public class SpawnManager : MonoBehaviour
     }
     void SpawnPowerUp()
     {
-        int index = Random.Range(0, powerUpPrefabs.Count);
-        Instantiate(powerUpPrefabs[index], new Vector3(ejeX, ejeYPowerUp, ejeZ),
-        powerUpPrefabs[index].transform.rotation);
+        if (juegoActivo.juegoActivo)
+        {
+            int index = Random.Range(0, powerUpPrefabs.Count);
+            Instantiate(powerUpPrefabs[index], new Vector3(ejeX, ejeYPowerUp, ejeZ),
+            powerUpPrefabs[index].transform.rotation);
+        }
     }
 }

@@ -19,15 +19,18 @@ public class MovJugador : MonoBehaviour
     private int balasInicial = 50;
     private int balasActual;
     [SerializeField] private Slider balasSlider;
-
+    [SerializeField] private GameObject canvasPerder;
+    private GameManager juegoActivo;
     void Start()
     {
         escudoActual = escudoInicial;
         balasActual = balasInicial;
+        juegoActivo = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > disparoSiguiente && balasActual > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > disparoSiguiente && balasActual > 0
+        && juegoActivo.juegoActivo)
         {
             Instantiate(proyectilPrefab,
             new Vector3(focalPoint.transform.position.x, focalPoint.transform.position.y,
@@ -57,6 +60,8 @@ public class MovJugador : MonoBehaviour
                 Destroy(gameObject);
                 Instantiate(destruccionParticle, transform.position,
                 destruccionParticle.transform.rotation);
+                canvasPerder.SetActive(true);
+                juegoActivo.juegoActivo = false;
             }
         }
     }

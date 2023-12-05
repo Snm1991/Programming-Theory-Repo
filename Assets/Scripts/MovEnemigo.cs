@@ -13,21 +13,32 @@ public class MovEnemigo : MonoBehaviour
     [SerializeField] private float disparoRate;
     [SerializeField] private float startDelay;
     [SerializeField] private int vida;
+    private GameManager juegoActivo;
+    private SpawnManager cantEnemigos;
     void Start()
     {
         InvokeRepeating("Disparar", startDelay, disparoRate);
+        juegoActivo = GameObject.Find("GameManager").GetComponent<GameManager>();
+        cantEnemigos = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
     }
     void Disparar()
     {
-        Instantiate(proyectilPrefab,
-            new Vector3(focalPoint.transform.position.x, focalPoint.transform.position.y,
-            focalPoint.transform.position.z),
-            proyectilPrefab.transform.rotation);
-        fireParticle.Play();
+        if (juegoActivo.juegoActivo)
+        {
+            Instantiate(proyectilPrefab,
+                new Vector3(focalPoint.transform.position.x, focalPoint.transform.position.y,
+                focalPoint.transform.position.z),
+                proyectilPrefab.transform.rotation);
+            fireParticle.Play();
+        }
     }
     void Update()
     {
-        transform.Translate(0, 0, vel * Time.deltaTime);
+        if (juegoActivo.juegoActivo)
+        {
+            transform.Translate(0, 0, vel * Time.deltaTime);
+        }
+
     }
     void OnCollisionEnter(Collision other)
     {
@@ -41,6 +52,7 @@ public class MovEnemigo : MonoBehaviour
             Destroy(gameObject);
             Instantiate(destruccionParticle, transform.position,
             destruccionParticle.transform.rotation);
+            cantEnemigos.cantEnemigos -= 1;
         }
     }
 }
