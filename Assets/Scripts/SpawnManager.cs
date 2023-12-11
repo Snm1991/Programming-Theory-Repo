@@ -17,7 +17,7 @@ public class SpawnManager : MonoBehaviour
     private float ejeZ = 17.8f;
     private GameManager juegoActivo;
     [SerializeField] private TextMeshProUGUI cantidadEnemigosText;
-    public int cantEnemigos = 20;
+    public int cantEnemigos;
     [SerializeField] private GameObject canvasMenu;
     [SerializeField] private GameObject canvasMisionCompleta;
     void Start()
@@ -41,7 +41,6 @@ public class SpawnManager : MonoBehaviour
             canvasMisionCompleta.SetActive(true);
         }
     }
-    // Update is called once per frame
     void SpawnEnemy()
     {
         enemyCount = FindObjectsOfType<MovEnemigo>().Length;
