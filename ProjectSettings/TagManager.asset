@@ -6,8 +6,9 @@ TagManager:
   tags:
   - MisilEnemy
   - MisilPlayer
-  - CargarBalas
-  - CargarEscudo
+  - CargadorBalas
+  - CargadorEscudo
+  - Enemigo
   layers:
   - Default
   - TransparentFX

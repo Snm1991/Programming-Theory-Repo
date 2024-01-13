@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -4490169700498330944}
   m_Layer: 0
   m_Name: CargarBalas
-  m_TagString: CargarBalas
+  m_TagString: CargadorBalas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,4 +127,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9554a97075953c4e8426519c5617319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vel: 5

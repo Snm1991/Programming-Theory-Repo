@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotacionRuedas : MonoBehaviour
+public class PowerUp : MonoBehaviour
 {
-    private int rotacionRuedas = 2;
+    private int vel = 4;
     private GameManager juegoActivo;
+    private int rotacionpowerUp = 2;
     void Start()
     {
         juegoActivo = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -14,11 +15,16 @@ public class RotacionRuedas : MonoBehaviour
     {
         if (juegoActivo.juegoActivo)
         {
-            RotarRuedas();
+            Mover();
+            Rotar();
         }
     }
-    void RotarRuedas()
+    void Mover()
     {
-        transform.Rotate(rotacionRuedas, 0, 0);
+        transform.Translate(0, 0, vel * Time.deltaTime);
+    }
+    void Rotar()
+    {
+        transform.Rotate(0, 0, rotacionpowerUp * Time.deltaTime);
     }
 }

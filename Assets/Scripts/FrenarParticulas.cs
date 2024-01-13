@@ -17,7 +17,12 @@ public class FrenarParticulas : MonoBehaviour
     {
         if (!juegoActivo.juegoActivo)
         {
-            particulasBarro.Stop();
+            FrenarBarro();
         }
     }
+    void FrenarBarro()
+    {
+        particulasBarro.Stop();
+    }
 }
+

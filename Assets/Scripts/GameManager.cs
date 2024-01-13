@@ -2,37 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; //Libreria para manipular escenas
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
+using UnityEngine.UI;
+using TMPro;
+
 
 public class GameManager : MonoBehaviour
 {
     public bool juegoActivo;
-
+    [SerializeField] private GameObject canvasPerder;
+    [SerializeField] private AudioSource contadorAudio;
+    public int cantEnemigos;
+    [SerializeField] private TextMeshProUGUI cantidadEnemigosText;
+    [SerializeField] private GameObject canvasMenu;
+    [SerializeField] private GameObject canvasMisionCompleta;
     void Start()
     {
         juegoActivo = true;
+        contadorAudio = GetComponent<AudioSource>();
     }
-    public void StartGame()
+    void Update()
     {
-        SceneManager.LoadScene(1);
+        if (juegoActivo)
+        {
+            TextoEnemigosRestantes();
+        }
+        if (cantEnemigos == 0)
+        {
+            MisionCompleta();
+        }
     }
+
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);
-    }
-    public void QuitGame()
-    {
-#if UNITY_EDITOR
-        EditorApplication.ExitPlaymode();
-#else
-        Application.Quit(); // original code to quit Unity player
-#endif
     }
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);/*Se resetea la escena 
         cuando se toca el botón para volver a empezar*/
+    }
+    public void TerminarJuego()
+    {
+        canvasPerder.SetActive(true);
+        juegoActivo = false;
+    }
+    public void DescontarEnemigo()
+    {
+        cantEnemigos -= 1;
+        contadorAudio.Play();
+    }
+    void TextoEnemigosRestantes()
+    {
+        cantidadEnemigosText.text = "Enemigos restantes: " + cantEnemigos;
+    }
+    void MisionCompleta()
+    {
+        juegoActivo = false;
+        canvasMenu.SetActive(true);
+        canvasMisionCompleta.SetActive(true);
     }
 }

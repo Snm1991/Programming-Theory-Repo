@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -8005162065760427328}
   m_Layer: 0
   m_Name: CargarVida
-  m_TagString: CargarEscudo
+  m_TagString: CargadorEscudo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,4 +127,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9554a97075953c4e8426519c5617319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vel: 5

@@ -16,11 +16,20 @@ public class MovPiso : MonoBehaviour
     {
         if (juegoActivo.juegoActivo)
         {
-            transform.Translate(Vector3.forward * velocidadScroll * Time.deltaTime);
-            if (transform.position.z > 6)
-            {
-                transform.position = posInicio;
-            }
+            Mover();
+        }
+        if (transform.position.z > 6)
+        {
+            ResetearPosicion();
         }
     }
+    void Mover()
+    {
+        transform.Translate(Vector3.forward * velocidadScroll * Time.deltaTime);
+    }
+    void ResetearPosicion()
+    {
+        transform.position = posInicio;
+    }
 }
+

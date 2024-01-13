@@ -5,6 +5,7 @@ using UnityEngine;
 public class RotacionFondo : MonoBehaviour
 {
     private GameManager juegoActivo;
+    private float rotacion = -0.5f;
     void Start()
     {
         juegoActivo = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -13,7 +14,11 @@ public class RotacionFondo : MonoBehaviour
     {
         if (juegoActivo.juegoActivo)
         {
-            transform.Rotate(0, -0.5f * Time.deltaTime, 0);
+            RotarFondo();
         }
+    }
+    void RotarFondo()
+    {
+        transform.Rotate(0, rotacion * Time.deltaTime, 0);
     }
 }
