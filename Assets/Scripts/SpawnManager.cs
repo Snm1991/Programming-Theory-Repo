@@ -17,18 +17,21 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         spawnRateEnemy = Random.Range(2, 10);
-        spawnRatePowerUp = Random.Range(10, 18);
+        spawnRatePowerUp = Random.Range(8, 16);
         InvokeRepeating("SpawnEnemy", startDelay, spawnRateEnemy);
         InvokeRepeating("SpawnPowerUp", startDelay, spawnRatePowerUp);
         juegoActivo = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     void SpawnEnemy()
     {
-        buscadorEnemigo = GameObject.FindGameObjectsWithTag("Enemigo").Length;
-        if (buscadorEnemigo == 0 && juegoActivo.cantEnemigos > 0)
+        if (juegoActivo.juegoActivo)
         {
-            Instantiate(enemyPrefab, new Vector3(ejeX, ejeYEnemy, ejeZ),
-            enemyPrefab.transform.rotation);
+            buscadorEnemigo = GameObject.FindGameObjectsWithTag("Enemigo").Length;
+            if (buscadorEnemigo == 0 && juegoActivo.cantEnemigos > 0)
+            {
+                Instantiate(enemyPrefab, new Vector3(ejeX, ejeYEnemy, ejeZ),
+                enemyPrefab.transform.rotation);
+            }
         }
     }
     void SpawnPowerUp()

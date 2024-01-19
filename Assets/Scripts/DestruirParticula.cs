@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DestruirParticula : MonoBehaviour
 {
-    [SerializeField] int tiempoParaDestruir;
+    //ENTERO
+    private int tiempoParaDestruir = 7;
     void Start()
     {
         Destroy(gameObject, tiempoParaDestruir);/*Destruir la particula después del 

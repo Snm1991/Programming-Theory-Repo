@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3580695198115394238}
   - component: {fileID: 3580695198116197240}
   - component: {fileID: 3580695198117221046}
-  - component: {fileID: 3580695198115037823}
   - component: {fileID: 3580695198115037822}
-  - component: {fileID: -8005162065760427328}
+  - component: {fileID: 1178173034365152128}
+  - component: {fileID: 7117573504041267365}
   m_Layer: 0
   m_Name: CargarVida
   m_TagString: CargadorEscudo
@@ -86,7 +86,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &3580695198115037823
+--- !u!65 &3580695198115037822
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3580695198115037820}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8328992, y: 0.44455004, z: 0.20007598}
+  m_Center: {x: 0.0000009834766, y: -0.29688478, z: 0.000000014901158}
+--- !u!54 &1178173034365152128
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,20 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 6
   m_CollisionDetection: 0
---- !u!65 &3580695198115037822
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3580695198115037820}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.8328992, y: 0.44455004, z: 0.20007598}
-  m_Center: {x: 0.0000009834766, y: -0.29688478, z: 0.000000014901158}
---- !u!114 &-8005162065760427328
+--- !u!114 &7117573504041267365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

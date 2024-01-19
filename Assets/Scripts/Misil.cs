@@ -4,14 +4,12 @@ using UnityEngine;
 
 public abstract class Misil : MonoBehaviour
 {
-    public GameManager juegoActivo;
-    //public AudioSource explosionAudio;
+    protected GameManager juegoActivo;
     void Start()
     {
         juegoActivo = GameObject.Find("GameManager").GetComponent<GameManager>();
-        //explosionAudio = GameObject.Find("ParticulaFuego").GetComponent<AudioSource>();
     }
-    public void DestruirMisil()
+    protected void DestruirMisil()
     {
         Destroy(gameObject);
     }

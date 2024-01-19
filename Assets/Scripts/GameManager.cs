@@ -4,21 +4,30 @@ using UnityEngine;
 using UnityEngine.SceneManagement; //Libreria para manipular escenas
 using UnityEngine.UI;
 using TMPro;
-
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class GameManager : MonoBehaviour
 {
-    public bool juegoActivo;
+    //BOOLEANOS
+    public bool juegoActivo { get; private set; }
+    //GAMEOBJECTS
     [SerializeField] private GameObject canvasPerder;
-    [SerializeField] private AudioSource contadorAudio;
-    public int cantEnemigos;
-    [SerializeField] private TextMeshProUGUI cantidadEnemigosText;
     [SerializeField] private GameObject canvasMenu;
-    [SerializeField] private GameObject canvasMisionCompleta;
+    [SerializeField] private GameObject canvasGanar;
+    //AUDIOSOURCE
+    private AudioSource contadorAudio;
+    //ENTEROS
+    public int cantEnemigos { get; private set; }
+    //TEXTO
+    [SerializeField] private TextMeshProUGUI cantidadEnemigosText;
+
     void Start()
     {
         juegoActivo = true;
         contadorAudio = GetComponent<AudioSource>();
+        cantEnemigos = 15;
     }
     void Update()
     {
@@ -32,18 +41,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void BackToMenu()
+    void BackToMenu()
     {
         SceneManager.LoadScene(0);
     }
-    public void RestartGame()
+    void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);/*Se resetea la escena 
         cuando se toca el botón para volver a empezar*/
     }
     public void TerminarJuego()
     {
-        canvasPerder.SetActive(true);
+        canvasMenu.SetActive(true);
         juegoActivo = false;
     }
     public void DescontarEnemigo()
@@ -59,6 +68,14 @@ public class GameManager : MonoBehaviour
     {
         juegoActivo = false;
         canvasMenu.SetActive(true);
-        canvasMisionCompleta.SetActive(true);
+        canvasGanar.SetActive(true);
+    }
+    void QuitGame()
+    {
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#else
+        Application.Quit(); // original code to quit Unity player
+#endif
     }
 }

@@ -7,11 +7,11 @@ using UnityEditor;
 #endif
 public class GameManagerMenu : MonoBehaviour
 {
-    public void StartGame()
+    void StartGame()
     {
         SceneManager.LoadScene(1);
     }
-    public void QuitGame()
+    void QuitGame()
     {
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();

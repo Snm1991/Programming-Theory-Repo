@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 public abstract class Tanque : MonoBehaviour
 {
-    public ParticleSystem destruccionParticle;
-    public AudioSource motorAudio;
-    void Start()
+    [SerializeField] private ParticleSystem destruccionParticle;
+    private int velRotacionRuedas = 2;
+    protected void DestruirTanque()
     {
-        motorAudio = GetComponent<AudioSource>();
-    }
-    protected void DetenerMotor()
-    {
-        motorAudio.Stop();
+        Destroy(gameObject);
     }
     protected void ExplosionTanque()
     {
@@ -23,4 +19,14 @@ public abstract class Tanque : MonoBehaviour
         transform.Translate(0, 0, 1 * Time.deltaTime);
     }
     protected abstract void Daño();
+    protected abstract void Disparo();
+    protected void RotarRuedas(GameObject rueda1, GameObject rueda2,
+    GameObject rueda3, GameObject rueda4)
+    {
+        rueda1.transform.Rotate(velRotacionRuedas, 0, 0);
+        rueda2.transform.Rotate(velRotacionRuedas, 0, 0);
+        rueda3.transform.Rotate(velRotacionRuedas, 0, 0);
+        rueda4.transform.Rotate(velRotacionRuedas, 0, 0);
+    }
+    
 }

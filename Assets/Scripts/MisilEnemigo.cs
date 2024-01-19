@@ -14,10 +14,6 @@ public class MisilEnemigo : Misil
     }
     void OnCollisionEnter(Collision other)
     {
-        /*if (other.gameObject.CompareTag("Player"))
-        {
-            Colision();
-        }*/
         DestruirMisil();
     }
 }

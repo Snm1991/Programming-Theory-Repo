@@ -6,48 +6,78 @@ public class TanqueJugador : Tanque
 {
     [SerializeField] private GameObject focalPoint;
     private int escudoInicial = 100;
-    public int escudoActual;
+    private int escudoActual;
     [SerializeField] private GameObject proyectilPrefab;
     [SerializeField] private Slider balasSlider;
     private float disparo = 0.5f;
-    [SerializeField] private float disparoSiguiente;
-    public Slider escudoSlider;
+    private float disparoSiguiente = 1;
+    [SerializeField] private Slider escudoSlider;
     private int balasInicial = 50;
     private int balasActual;
     [SerializeField] private ParticleSystem fireParticle;
+    [SerializeField] private ParticleSystem golpeParticle;
     private int dañoRandom;
     private GameManager juegoActivo;
     private AudioSource sonidoDisparo;
     private AudioSource powerUpAudio;
     private AudioSource sonidoGolpe;
+    [SerializeField] private GameObject rueda1;
+    [SerializeField] private GameObject rueda2;
+    [SerializeField] private GameObject rueda3;
+    [SerializeField] private GameObject rueda4;
     void Start()
     {
         escudoActual = escudoInicial;
         balasActual = balasInicial;
         sonidoDisparo = GameObject.Find("Cañon").GetComponent<AudioSource>();
         powerUpAudio = GameObject.Find("Torreta").GetComponent<AudioSource>();
-        dañoRandom = Random.Range(2, 5);
+        dañoRandom = Random.Range(5, 15);
         juegoActivo = GameObject.Find("GameManager").GetComponent<GameManager>();
-        sonidoGolpe = GameObject.Find("Player").GetComponent<AudioSource>();
+        sonidoGolpe = GameObject.Find("SonidoGolpes").GetComponent<AudioSource>();
     }
     void Update()
     {
+        RotarRuedas(rueda1, rueda2, rueda3, rueda4);
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > disparoSiguiente && balasActual > 0
         && juegoActivo.juegoActivo)
         {
-            Disparar();
-            CadenciaDisparo();
-            DescontarBala();
+            Disparo();
         }
         if (escudoActual <= 0)
         {
-            Destroy(gameObject);
+            DestruirTanque();
             ExplosionTanque();
             juegoActivo.TerminarJuego();
         }
-        if (!juegoActivo.juegoActivo)
+    }
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("MisilEnemy"))
         {
-            DetenerMotor();
+            Daño();
+        }
+    }
+    protected override void Daño()
+    {
+        escudoActual -= dañoRandom;
+        escudoSlider.value = escudoActual;
+        sonidoGolpe.Play();
+        golpeParticle.Play();
+    }
+    protected override void Disparo()
+    {
+        Instantiate(proyectilPrefab,
+        new Vector3(focalPoint.transform.position.x, focalPoint.transform.position.y,
+        focalPoint.transform.position.z),
+        proyectilPrefab.transform.rotation);
+        fireParticle.Play();
+        sonidoDisparo.Play();
+        disparoSiguiente = Time.time + disparo;
+        balasActual -= 1;
+        balasSlider.value = balasActual;
+        if (balasActual <= 0)
+        {
+            balasActual = 0;
         }
     }
     void OnTriggerEnter(Collider other)
@@ -82,40 +112,5 @@ public class TanqueJugador : Tanque
         {
             escudoActual = 100;
         }
-    }
-    void CadenciaDisparo()
-    {
-        disparoSiguiente = Time.time + disparo;
-    }
-    void DescontarBala()
-    {
-        balasActual -= 1;
-        balasSlider.value = balasActual;
-        if (balasActual <= 0)
-        {
-            balasActual = 0;
-        }
-    }
-    void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("MisilEnemy"))
-        {
-            Daño();
-        }
-    }
-    protected override void Daño()
-    {
-        escudoActual -= dañoRandom;
-        escudoSlider.value = escudoActual;
-        sonidoGolpe.Play();
-    }
-    protected void Disparar()
-    {
-        Instantiate(proyectilPrefab,
-        new Vector3(focalPoint.transform.position.x, focalPoint.transform.position.y,
-        focalPoint.transform.position.z),
-        proyectilPrefab.transform.rotation);
-        fireParticle.Play();
-        sonidoDisparo.Play();
     }
 }

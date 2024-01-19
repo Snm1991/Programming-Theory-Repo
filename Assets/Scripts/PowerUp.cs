@@ -18,6 +18,10 @@ public class PowerUp : MonoBehaviour
             Mover();
             Rotar();
         }
+        if (!juegoActivo.juegoActivo)
+        {
+            Destruir();
+        }
     }
     void Mover()
     {
@@ -26,5 +30,9 @@ public class PowerUp : MonoBehaviour
     void Rotar()
     {
         transform.Rotate(0, 0, rotacionpowerUp * Time.deltaTime);
+    }
+    void Destruir()
+    {
+        Destroy(gameObject);
     }
 }

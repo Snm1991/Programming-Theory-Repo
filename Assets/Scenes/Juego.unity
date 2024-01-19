@@ -482,7 +482,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Enemigos restantes: 20'
+  m_text: 'Enemigos restantes: 15'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9d24e6b3ecd1d2b479a31d3d0e7b1f9e, type: 2}
   m_sharedMaterial: {fileID: 21148088844906328, guid: 9d24e6b3ecd1d2b479a31d3d0e7b1f9e, type: 2}
@@ -5496,7 +5496,6 @@ GameObject:
   - component: {fileID: 254741854}
   - component: {fileID: 235357454}
   - component: {fileID: 236584252}
-  - component: {fileID: 254741855}
   m_Layer: 0
   m_Name: ParticulaBarro
   m_TagString: Untagged
@@ -5511,27 +5510,142 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254511846}
-  m_LocalRotation: {x: -0.07710496, y: -0.7958243, z: -0.18974054, w: -0.5698396}
-  m_LocalPosition: {x: 1.1599998, y: -0, z: 1.1699982}
+  m_LocalRotation: {x: -0.07710497, y: -0.7958243, z: -0.18974054, w: -0.5698396}
+  m_LocalPosition: {x: 1.1599998, y: 0, z: 1.1699982}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1898115446}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -12.364, y: -73.431, z: 20.305}
---- !u!114 &254741855
-MonoBehaviour:
+--- !u!1 &351300514
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254511846}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 351300516}
+  - component: {fileID: 351300515}
+  m_Layer: 0
+  m_Name: SonidoGolpes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &351300515
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351300514}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2a3fb510948ae64896b80d35e70dd19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particulasBarro: {fileID: 235357454}
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9c87f285d32fa4569b77ddf3a7e6df5e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &351300516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351300514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.091297, y: 6.0064073, z: 30.782816}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &384859122
 GameObject:
   m_ObjectHideFlags: 0
@@ -6110,7 +6224,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7655334, y: 0.731378}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 33.00003, y: 6.500061}
+  m_AnchoredPosition: {x: 33.00003, y: 6.500122}
   m_SizeDelta: {x: -114, y: -41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &645970943
@@ -6120,7 +6234,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 646200391}
-  m_LocalRotation: {x: -0.07710497, y: -0.7958243, z: -0.18974052, w: -0.5698396}
+  m_LocalRotation: {x: -0.07710498, y: -0.7958243, z: -0.18974052, w: -0.5698396}
   m_LocalPosition: {x: -1.3400002, y: 0, z: 1.4900017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6139,7 +6253,6 @@ GameObject:
   - component: {fileID: 645970943}
   - component: {fileID: 665383855}
   - component: {fileID: 666258333}
-  - component: {fileID: 666258334}
   m_Layer: 0
   m_Name: ParticulaBarro(3)
   m_TagString: Untagged
@@ -10965,19 +11078,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &666258334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 646200391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2a3fb510948ae64896b80d35e70dd19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particulasBarro: {fileID: 665383855}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -11214,7 +11314,6 @@ GameObject:
   - component: {fileID: 722996710}
   - component: {fileID: 724340820}
   - component: {fileID: 725394632}
-  - component: {fileID: 725394633}
   m_Layer: 0
   m_Name: Wheel_rr
   m_TagString: Untagged
@@ -11255,7 +11354,6 @@ GameObject:
   - component: {fileID: 723040522}
   - component: {fileID: 724416220}
   - component: {fileID: 725287780}
-  - component: {fileID: 725287781}
   m_Layer: 0
   m_Name: Wheel_fl
   m_TagString: Untagged
@@ -11293,7 +11391,6 @@ GameObject:
   - component: {fileID: 723066616}
   - component: {fileID: 724328016}
   - component: {fileID: 725374590}
-  - component: {fileID: 725374591}
   m_Layer: 0
   m_Name: Wheel_rl
   m_TagString: Untagged
@@ -11312,7 +11409,6 @@ GameObject:
   - component: {fileID: 723078622}
   - component: {fileID: 724344626}
   - component: {fileID: 725396776}
-  - component: {fileID: 725396777}
   m_Layer: 0
   m_Name: Wheel_fr
   m_TagString: Untagged
@@ -11418,18 +11514,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &725287781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723431584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eca3fa7652b33b48ae45501a105d27e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &725357926
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11664,7 +11748,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c053c3d2a711144dcb83ba80730f20a6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -11672,8 +11756,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 20
-  MaxDistance: 50
+  MinDistance: 1
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -11790,18 +11874,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &725374591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723444696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eca3fa7652b33b48ae45501a105d27e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &725394632
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11844,18 +11916,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &725394633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723383016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eca3fa7652b33b48ae45501a105d27e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &725396776
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11898,18 +11958,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &725396777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723447672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eca3fa7652b33b48ae45501a105d27e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &892014956
 GameObject:
   m_ObjectHideFlags: 0
@@ -12750,15 +12798,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destruccionParticle: {fileID: 998587854717958964, guid: 70d7dc328bf81e347849ed8293d58356, type: 3}
-  motorAudio: {fileID: 1156259520}
-  "particulaDa\xF1o": {fileID: 2544664835773213513, guid: 506c2f499f8d13d46a479bdf62649f5e, type: 3}
   focalPoint: {fileID: 2094336862}
-  escudoActual: 0
   proyectilPrefab: {fileID: 4262509460194683912, guid: 14f07a3141c658b4cad6ebf85822f862, type: 3}
   balasSlider: {fileID: 388278495}
-  disparoSiguiente: 1
   escudoSlider: {fileID: 84366820}
   fireParticle: {fileID: 8462688181963311365}
+  golpeParticle: {fileID: 5539929359778697286}
+  rueda1: {fileID: 723431584}
+  rueda2: {fileID: 723447672}
+  rueda3: {fileID: 723444696}
+  rueda4: {fileID: 723383016}
 --- !u!65 &1156259518
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12798,15 +12847,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f479efddb5f7647338aacc9397bd395e, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_audioClip: {fileID: 8300000, guid: ca68f5a41f65e5f4a89254181c118499, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.05
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 74
   DopplerLevel: 1
   MinDistance: 20
   MaxDistance: 50
@@ -13058,7 +13107,7 @@ GameObject:
   - component: {fileID: 1729005929}
   - component: {fileID: 1729005928}
   m_Layer: 5
-  m_Name: CanvasPerder
+  m_Name: CanvasMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18174,7 +18223,6 @@ GameObject:
   - component: {fileID: 1967321828}
   - component: {fileID: 1953151668}
   - component: {fileID: 1953759878}
-  - component: {fileID: 1967551837}
   m_Layer: 0
   m_Name: ParticulaBarro(2)
   m_TagString: Untagged
@@ -18182,19 +18230,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1967551837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967551836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2a3fb510948ae64896b80d35e70dd19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particulasBarro: {fileID: 1953151668}
 --- !u!1 &2033184317
 GameObject:
   m_ObjectHideFlags: 0
@@ -18225,13 +18260,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d89af7d7c981448b7af6cde9fb9af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  juegoActivo: 0
   canvasPerder: {fileID: 1729005927}
-  contadorAudio: {fileID: 0}
-  cantEnemigos: 20
+  canvasMenu: {fileID: 1729005927}
+  canvasGanar: {fileID: 1110765526}
   cantidadEnemigosText: {fileID: 118596733}
-  canvasMenu: {fileID: 930027032}
-  canvasMisionCompleta: {fileID: 1110765526}
 --- !u!4 &2033184319
 Transform:
   m_ObjectHideFlags: 0
@@ -23083,7 +23115,6 @@ GameObject:
   - component: {fileID: 2111413768}
   - component: {fileID: 2096223832}
   - component: {fileID: 2096066154}
-  - component: {fileID: 2111642033}
   m_Layer: 0
   m_Name: ParticulaBarro(1)
   m_TagString: Untagged
@@ -23091,128 +23122,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2111642033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2111642032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2a3fb510948ae64896b80d35e70dd19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particulasBarro: {fileID: 2096223832}
---- !u!82 &1014386322048553764
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4012965318722752528}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9c87f285d32fa4569b77ddf3a7e6df5e, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 20
-  MaxDistance: 50
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &3249905098976173785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4012965318722752528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e392ddd94b5564a428f4d5d2b2c13334, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tiempoParaDestruir: 2
 --- !u!4 &3964283271776383331
 Transform:
   m_ObjectHideFlags: 0
@@ -23239,8 +23148,6 @@ GameObject:
   - component: {fileID: 3964283271776383331}
   - component: {fileID: 5539929359778697286}
   - component: {fileID: 4447009926329858231}
-  - component: {fileID: 1014386322048553764}
-  - component: {fileID: 3249905098976173785}
   m_Layer: 0
   m_Name: ExplosionGolpeParticula
   m_TagString: Untagged
