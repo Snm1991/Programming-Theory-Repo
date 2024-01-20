@@ -13,24 +13,29 @@ public class PowerUp : MonoBehaviour
     }
     void Update()
     {
+        //SI EL JUEGO ESTA ACTIVO, SE MUEVE Y ROTA EL POWER UP
         if (juegoActivo.juegoActivo)
         {
             Mover();
             Rotar();
         }
+        //SI NO, SE DESTRUYE
         if (!juegoActivo.juegoActivo)
         {
             Destruir();
         }
     }
+    //MOVER
     void Mover()
     {
         transform.Translate(0, 0, vel * Time.deltaTime);
     }
+    //ROTAR
     void Rotar()
     {
         transform.Rotate(0, 0, rotacionpowerUp * Time.deltaTime);
     }
+    //DESTRUIR
     void Destruir()
     {
         Destroy(gameObject);

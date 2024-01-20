@@ -2,47 +2,62 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class TanqueJugador : Tanque
+public class TanqueJugador : Tanque //HERENCIA
 {
-    [SerializeField] private GameObject focalPoint;
-    private int escudoInicial = 100;
-    private int escudoActual;
-    [SerializeField] private GameObject proyectilPrefab;
-    [SerializeField] private Slider balasSlider;
-    private float disparo = 0.5f;
-    private float disparoSiguiente = 1;
-    [SerializeField] private Slider escudoSlider;
-    private int balasInicial = 50;
-    private int balasActual;
-    [SerializeField] private ParticleSystem fireParticle;
-    [SerializeField] private ParticleSystem golpeParticle;
-    private int dañoRandom;
-    private GameManager juegoActivo;
-    private AudioSource sonidoDisparo;
-    private AudioSource powerUpAudio;
-    private AudioSource sonidoGolpe;
+    //VARIABLES GAME OBJECTS
     [SerializeField] private GameObject rueda1;
     [SerializeField] private GameObject rueda2;
     [SerializeField] private GameObject rueda3;
     [SerializeField] private GameObject rueda4;
+    [SerializeField] private GameObject focalPoint;
+    [SerializeField] private GameObject proyectilPrefab;
+    //VARIABLES INT
+    private int escudoInicial = 100;
+    private int escudoActual;
+    private int balasInicial = 50;
+    private int balasActual;
+    private int dañoRandom;
+    //VARIABLES FLOAT
+    private float disparo = 0.5f;
+    private float disparoSiguiente = 1;
+    //VARIABLES TIPO SLIDER
+    [SerializeField] private Slider escudoSlider;
+    [SerializeField] private Slider balasSlider;
+    //VARIABLES SISTEMA DE PARTICULAS
+    [SerializeField] private ParticleSystem fireParticle;
+    [SerializeField] private ParticleSystem golpeParticle;
+    //VARIABLE DE SCRIPT
+    private GameManager juegoActivo;
+    private AudioSource sonidoDisparo;
+    //AUDIO
+    private AudioSource powerUpAudio;
+    private AudioSource sonidoGolpe;
+
     void Start()
     {
+        //SE IGUALAN LAS VARIABLES INICIALES CON LAS ACTUALES AL COMIENZO DEL JUEGO
         escudoActual = escudoInicial;
         balasActual = balasInicial;
-        sonidoDisparo = GameObject.Find("Cañon").GetComponent<AudioSource>();
-        powerUpAudio = GameObject.Find("Torreta").GetComponent<AudioSource>();
-        dañoRandom = Random.Range(5, 15);
+        //SE TRAEN COMPONENTES DE GAMEOBJECTS
         juegoActivo = GameObject.Find("GameManager").GetComponent<GameManager>();
         sonidoGolpe = GameObject.Find("SonidoGolpes").GetComponent<AudioSource>();
+        sonidoDisparo = GameObject.Find("Cañon").GetComponent<AudioSource>();
+        powerUpAudio = GameObject.Find("Torreta").GetComponent<AudioSource>();
+        //EL TANQUE RECIBE UN DAÑO ALEATORIO
+        dañoRandom = Random.Range(5, 15);
+        
     }
     void Update()
     {
+        //SE ROTAN LAS RUEDAS
         RotarRuedas(rueda1, rueda2, rueda3, rueda4);
+        //DISPARAR CON BARRA ESPACIADORA
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > disparoSiguiente && balasActual > 0
         && juegoActivo.juegoActivo)
         {
             Disparo();
         }
+        //DESTRUIR AL QUEDARSE SIN VIDA
         if (escudoActual <= 0)
         {
             DestruirTanque();
@@ -50,6 +65,7 @@ public class TanqueJugador : Tanque
             juegoActivo.TerminarJuego();
         }
     }
+    //RECIBIR DAÑO AL COLISIONAR CON MISIL ENEMIGO
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("MisilEnemy"))
@@ -57,6 +73,7 @@ public class TanqueJugador : Tanque
             Daño();
         }
     }
+    //RECIBE DAÑO, SOBREESCRIBE EL METODO POLIMORFISMO
     protected override void Daño()
     {
         escudoActual -= dañoRandom;
@@ -64,6 +81,7 @@ public class TanqueJugador : Tanque
         sonidoGolpe.Play();
         golpeParticle.Play();
     }
+    //DISPARA, SOBREESCRIBE EL METODO POLIMORFISMO
     protected override void Disparo()
     {
         Instantiate(proyectilPrefab,
@@ -80,6 +98,7 @@ public class TanqueJugador : Tanque
             balasActual = 0;
         }
     }
+    //SE CARGAN BALAS Y VIDA AL COLISIONAR CON POWER UP
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("CargadorBalas"))

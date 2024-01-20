@@ -7,10 +7,12 @@ using UnityEditor;
 #endif
 public class GameManagerMenu : MonoBehaviour
 {
+    //CARGAR LA ESCENA DE JUEGO
     void StartGame()
     {
         SceneManager.LoadScene(1);
     }
+    //SALIR DE LA APP
     void QuitGame()
     {
 #if UNITY_EDITOR

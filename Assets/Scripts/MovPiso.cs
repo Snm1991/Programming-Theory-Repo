@@ -18,10 +18,12 @@ public class MovPiso : MonoBehaviour
             ResetearPosicion();
         }
     }
+    //MOVER EL PISO
     void Mover()
     {
         transform.Translate(Vector3.forward * velocidadScroll * Time.deltaTime);
     }
+    //VOLVER A POSICION INICIAL
     void ResetearPosicion()
     {
         transform.position = posInicio;

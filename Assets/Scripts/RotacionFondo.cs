@@ -9,6 +9,7 @@ public class RotacionFondo : MonoBehaviour
     {
         RotarFondo();
     }
+    //ROTAR EL FONDO DE MONTAÑAS
     void RotarFondo()
     {
         transform.Rotate(0, rotacion * Time.deltaTime, 0);

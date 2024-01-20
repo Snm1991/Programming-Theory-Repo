@@ -9,10 +9,12 @@ public abstract class Misil : MonoBehaviour
     {
         juegoActivo = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
+    //DESTRUIR EL MISIL
     protected void DestruirMisil()
     {
         Destroy(gameObject);
     }
+    //MOVER EL MISIL
     protected void MoverMisil()
     {
         transform.Translate(0, 0, 8 * Time.deltaTime);
